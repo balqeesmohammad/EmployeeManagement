@@ -1,0 +1,83 @@
+﻿@model HomeDetailsViewModel
+
+
+
+@{ 
+    //    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Employee  Details";
+    var photoPath = "~/Images/" + (Model.Employee.PhotoPath ?? "new.jpg");
+}
+
+    @*!-- <h1>@ViewData["EmployeeTitle"] </h1>>--!*@
+
+    @*@{
+            var employee = ViewData["Employee"] as TestCore2.Models.Employee;
+        }*@
+
+    @*<div>
+                Name : @employee.Name ;
+
+            </div>
+            <div>
+                Email : @employee.Email ;
+
+            </div>
+            <div>
+                Department : @employee.Department ;
+
+            </div>
+        </body>
+ <h1>   @Model.PageTitle  </h1>>
+    @*
+        <div>
+            Name :    @ViewBag.Employee.Name
+        </div>
+
+        <div>
+            Email :    @ViewBag.Employee.Email
+        </div>
+
+        <div>
+            Departmaent :    @ViewBag.Employee.Department
+        </div>*@
+
+    @*<div>Name : @Model.Employee.Name</div>>
+    <div>Email : @Model.Employee.Email</div>>
+    <div>Department : @Model.Employee.Department</div>>*@
+
+
+<div class="row justify-content-center m-3">
+    <div class="col-sm-8">
+        <div class="card">
+            <div class="card-header">
+                <h1>@Model.Employee.Name</h1>
+            </div>
+
+            <div class="card-body text-center">
+                <img class="card-img-top" src= "@photoPath"  asp-append-version="true" />
+
+                <h4>Employee ID : @Model.Employee.Id</h4>
+                <h4>Email : @Model.Employee.Email</h4>
+                <h4>Department : @Model.Employee.Department</h4>
+
+            </div>
+            <div class="card-footer text-center">
+                <a  asp-controller="Home" asp-action="Index" class="btn btn-primary m-1">Back</a>
+                <a  class="btn btn-primary m-1" asp-action="edit" asp-controller="home"
+                   asp-route-id="@Model.Employee.Id" >Edit</a>
+
+                <a  class="btn btn-danger m-1">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+@section Script {
+    <script src="~/js/CustomScript.js"></script>
+ }
